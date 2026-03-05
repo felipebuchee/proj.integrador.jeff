@@ -5,7 +5,6 @@ namespace app\core;
 class Route
 {
 
-
     public function route($route, $action)
     {
 
@@ -15,7 +14,6 @@ class Route
 
         $controllerClass = "app\\controllers\\$controller";
         
-
         switch ($uri) {
             case '/teste':
                 print 'teste!';
