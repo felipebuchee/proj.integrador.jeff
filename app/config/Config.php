@@ -11,3 +11,11 @@ if (DEV_ENVIRONMENT == true) {
 
 //Configuração do Sistema
 define('APP_NAME', 'Projeto Integrador');
+
+//Configurações do Banco de dados
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'db_projeto_integrador');
+
+define('DB_USER', 'root');
+define('DB_PASS', 'bancodedados');
+

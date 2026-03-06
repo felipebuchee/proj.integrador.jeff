@@ -1,5 +1,5 @@
 <?php 
-//Esta classe procura e realiza o require de classes.
+
 spl_autoload_register(function($class){
 
     $prefix = 'app\\';
@@ -7,7 +7,6 @@ spl_autoload_register(function($class){
 
     if (str_starts_with($class, $prefix)) {
         
-    
         $path = substr($class, strlen($prefix));
 
         $classFile = $baseDir .  str_replace('\\', '/', $path) . '.php';
