@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 use app\core\Controller;
+use app\database\ConnectionFactory;
 use DateTimeImmutable;
 
 class PlayerController extends Controller {
@@ -37,7 +38,8 @@ class PlayerController extends Controller {
         $this->redirect("http://google.com");
     }
 
-
-
+    public function testeDatabase(){
+        ConnectionFactory::getConnection();
+    }
 
 } 

@@ -20,4 +20,7 @@ $router->get('/jogadores/editar', 'PlayerController@editPlayer');
 $router->post('/jogadores/atualizar', 'PlayerController@updatePlayer');
 $router->get('/jogadores/excluir', 'PlayerController@deletePlayer');
 
+$router->get('/teste', 'PlayerController@testeDatabase');
+
+
 $router->run();
