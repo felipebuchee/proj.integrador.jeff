@@ -38,5 +38,7 @@ class DatabaseInitializer
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
         
         $connection->exec($usersTable);
+
+        // TODO: Aqui podem ser incluidos scripts para criação de outras tabelas e registros do banco de dados! 
     }
 }

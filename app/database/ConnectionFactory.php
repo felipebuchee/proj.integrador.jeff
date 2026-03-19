@@ -25,6 +25,9 @@ class ConnectionFactory {
                 $dsn = "mysql:host=" . DB_HOST;
                 self::$connection = self::createConnection($dsn);
 
+                $databaseInit = new DatabaseInitializer();
+                $databaseInit->init(self::$connection);
+
             }
         }
 
