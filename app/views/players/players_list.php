@@ -11,7 +11,7 @@
 
     <?php foreach($list as $player): ?>
 
-        <p><?= $player ?></p>
+        <p><?= $player['name'] ?> | <?= $player['nationality'] ?></p>
 
     <?php endforeach; ?>
     

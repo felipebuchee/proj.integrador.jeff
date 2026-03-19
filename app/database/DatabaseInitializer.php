@@ -40,5 +40,7 @@ class DatabaseInitializer
         $connection->exec($usersTable);
 
         // TODO: Aqui podem ser incluidos scripts para criação de outras tabelas e registros do banco de dados! 
+
+        
     }
 }

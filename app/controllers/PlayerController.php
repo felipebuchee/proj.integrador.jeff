@@ -4,15 +4,25 @@ namespace app\controllers;
 use app\core\Controller;
 use app\database\ConnectionFactory;
 use DateTimeImmutable;
+use PDO;
 
 class PlayerController extends Controller {
 
+    public PDO $connection;
+
     public function __construct()
     {
+        $this->connection = ConnectionFactory::getConnection();
     }
 
     public function getAll() {
-        $data['list'] = ['Neymar', 'Bebeto', 'Gabigol', 'Cebola'];
+
+        $stm = $this->connection->prepare("SELECT * FROM players");
+        $stm->execute();
+
+        $data['list'] = $stm->fetchAll();
+
+        //$data['list'] = ['Neymar', 'Bebeto', 'Gabigol', 'Cebola'];
 
         $this->view('players/players_list', $data);
     }
@@ -36,10 +46,6 @@ class PlayerController extends Controller {
 
     public function testRedirect(){
         $this->redirect("http://google.com");
-    }
-
-    public function testeDatabase(){
-        ConnectionFactory::getConnection();
     }
 
 } 
