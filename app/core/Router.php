@@ -42,8 +42,6 @@ class Router
 
         http_response_code(404);
         exit('Rota não encontrada');
-
-
     }
 
     public function dispatch($route){
