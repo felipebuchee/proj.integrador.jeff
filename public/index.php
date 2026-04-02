@@ -7,20 +7,19 @@ use app\core\Router;
 
 $router = new Router();
 
-$router->get('/', 'SiteController@index');
-$router->get('/sobre', 'SiteController@about');
-$router->get('/contato', 'SiteController@contact');
+$router->get('/', 'JogadorController@listarTodos');
 
-// Player Routes
-$router->get('/jogadores', 'PlayerController@getAll');
-$router->get('/jogadores/jogador', 'PlayerController@getPlayer');
-$router->get('/jogadores/cadastrar', 'PlayerController@createPlayer');
-$router->post('/jogadores/salvar', 'PlayerController@savePlayer');
-$router->get('/jogadores/editar', 'PlayerController@editPlayer');
-$router->post('/jogadores/atualizar', 'PlayerController@updatePlayer');
-$router->get('/jogadores/excluir', 'PlayerController@deletePlayer');
+// Jogador Routes
+$router->get('/jogadores', 'JogadorController@listarTodos');
+$router->get('/jogadores/jogador', 'JogadorController@verJogador');
+$router->get('/jogadores/cadastrar', 'JogadorController@criar');
 
-$router->get('/teste', 'PlayerController@testeDatabase');
+$router->post('/jogadores/salvar', 'JogadorController@salvar');
+$router->get('/jogadores/editar', 'JogadorController@editar');
+$router->post('/jogadores/atualizar', 'JogadorController@atualizar');
+$router->get('/jogadores/excluir', 'JogadorController@excluir');
+
+$router->get('/teste', 'JogadorController@redirecionarTeste');
 
 
 $router->run();

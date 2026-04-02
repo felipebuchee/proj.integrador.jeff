@@ -11,6 +11,7 @@ if (DEV_ENVIRONMENT == true) {
 
 //Configuração do Sistema
 define('APP_NAME', 'Projeto Integrador');
+define('URL_BASE', 'http://localhost:8080');
 
 //Configurações do Banco de dados
 define('DB_HOST', 'localhost');

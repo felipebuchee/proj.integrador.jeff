@@ -12,35 +12,16 @@ class DatabaseInitializer
         $connection->exec("CREATE DATABASE IF NOT EXISTS " . DB_NAME);
         $connection->exec("USE " . DB_NAME);
 
-        $playersTable = "CREATE TABLE IF NOT EXISTS players (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(255) NOT NULL,
-            birthDate DATE NOT NULL,
-            nationality VARCHAR(100) NULL,
-            height DECIMAL(4,2) NULL,
-            weight DECIMAL(5,2) NULL,
-            dominantFoot ENUM('Left', 'Right', 'Both') NULL,
-            position ENUM('GK', 'DF', 'MF', 'FW') NULL,
-            team VARCHAR(100) NULL,
-            image VARCHAR(255) DEFAULT NULL,
-            createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
-        
-        $connection->exec($playersTable);
+        $scriptPath = __DIR__ . '/scripts/script.sql';
 
-        $usersTable = "CREATE TABLE IF NOT EXISTS users (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            username VARCHAR(50) NOT NULL UNIQUE,
-            email VARCHAR(255) NOT NULL UNIQUE,
-            password VARCHAR(255) NOT NULL,
-            role VARCHAR(20) NOT NULL DEFAULT 'user',
-            createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
-        
-        $connection->exec($usersTable);
-
-        // TODO: Aqui podem ser incluidos scripts para criação de outras tabelas e registros do banco de dados! 
-
-        
+        if (file_exists($scriptPath)) {
+            $sql = file_get_contents($scriptPath);
+            
+            try {
+                $connection->exec($sql);
+            } catch (\Exception $e) {
+                error_log("Erro ao inicializar banco de dados: " . $e->getMessage());
+            }
+        }
     }
 }
