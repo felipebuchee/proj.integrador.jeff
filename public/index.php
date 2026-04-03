@@ -21,5 +21,14 @@ $router->get('/jogadores/excluir', 'JogadorController@excluir');
 
 $router->get('/teste', 'JogadorController@redirecionarTeste');
 
+// Adicione em public/index.php
+$router->get('/usuarios', 'UsuarioController@index');
+$router->get('/usuarios/cadastrar', 'UsuarioController@cadastrar');
+$router->post('/usuarios/salvar', 'UsuarioController@salvar');
+
+$router->get('/usuarios/editar', 'UsuarioController@editar');
+$router->post('/usuarios/atualizar', 'UsuarioController@atualizar');
+
+$router->get('/usuarios/excluir', 'UsuarioController@excluir');
 
 $router->run();

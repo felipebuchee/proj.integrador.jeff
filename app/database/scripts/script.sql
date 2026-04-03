@@ -1,3 +1,6 @@
+CREATE DATABASE jogadores_jeff;
+USE jogadores_jeff;
+
 CREATE TABLE IF NOT EXISTS jogadores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,

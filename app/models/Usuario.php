@@ -13,7 +13,7 @@ class Usuario
     private string $perfil;
     private DateTimeImmutable $criadoEm;
 
-    public function __construct(int $id, string $nomeUsuario, string $email, string $senha, string $perfil)
+    public function __construct(int $id = 0, string $nomeUsuario = '', string $email = '', string $senha = '', string $perfil = 'user')
     {
         $this->id = $id;
         $this->nomeUsuario = $nomeUsuario;
@@ -23,43 +23,12 @@ class Usuario
         $this->criadoEm = new DateTimeImmutable();
     }
 
-    public function getId(): int
-    {
-        return $this->id;
-    }
 
-    public function getNomeUsuario(): string
-    {
-        return $this->nomeUsuario;
-    }
-
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    public function getSenha(): string
-    {
-        return $this->senha;
-    }
-
-    public function getPerfil(): string
-    {
-        return $this->perfil;
-    }
-
-    public function eAdmin(): bool
-    {
-        return $this->perfil === 'admin';
-    }
-
-    public function getCriadoEm(): DateTimeImmutable
-    {
-        return $this->criadoEm;
-    }
-
-    public function setCriadoEm(DateTimeImmutable $criadoEm): void
-    {
-        $this->criadoEm = $criadoEm;
-    }
+    // Getters e Setters (omitidos para brevidade neste guia)
+    public function getId(): int { return $this->id; }
+    public function getNomeUsuario(): string { return $this->nomeUsuario; }
+    public function getEmail(): string { return $this->email; }
+    public function getSenha(): string { return $this->senha; }
+    public function getPerfil(): string { return $this->perfil; }
+    public function getCriadoEm(): DateTimeImmutable { return $this->criadoEm; }
 }
